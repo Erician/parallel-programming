@@ -23,8 +23,6 @@ int main( int argc, char** argv )
 	double costTime;
 	//start time
 	gettimeofday(&start,0);
-	
-	printf("%d %d\n",image.rows,nChannels*(image.cols));
 	for(int i=1;i<image.rows-1;i++)
 	{//舍去最后一行和第一行
 		//获取行地址,是中间那一行的地址
@@ -57,6 +55,7 @@ int main( int argc, char** argv )
 	//finish time
 	gettimeofday(&finish,0);
 	costTime = 1000000*(finish.tv_sec-start.tv_sec)+finish.tv_usec-start.tv_usec;
+	printf("%d %d\n",image.rows,nChannels*(image.cols));
 	printf("cost time:%lf us.\n",costTime);
 	IplImage qImg;
 	qImg = IplImage(con_image);
